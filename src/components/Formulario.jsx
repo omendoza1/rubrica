@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Formulario = () => {
   const [nombre, setNombre] = useState("");
-  const [universidad, setUniversidad] = useState("");
+  const [apellido, setApellido] = useState("");
   const [carrera, setCarrera] = useState("");
   const [edad, setEdad] = useState("");
   const [sexo, setSexo] = useState("F");
@@ -20,8 +20,8 @@ const Formulario = () => {
       return;
     }
 
-    if (!universidad.trim()) {
-      setError("La universidad es requerida!");
+    if (!apellido.trim()) {
+      setError("El apellido es requerido!");
       return;
     }
     if (!String(edad.trim())) {
@@ -59,7 +59,7 @@ const Formulario = () => {
       ...data,
       {
         nombre,
-        universidad,
+        apellido,
         carrera,
         edad,
         sexo,
@@ -69,7 +69,7 @@ const Formulario = () => {
     ]);
 
     setNombre("");
-    setUniversidad("");
+    setApellido("");
     setCarrera("");
     setEdad("");
     setSexo("F");
@@ -84,7 +84,7 @@ const Formulario = () => {
 
   return (
     <div className="container mt-2">
-      <h2 className="text-center">Usuarios</h2>
+      <h2 className="text-center">Rúbrica-Segundo corte</h2>
       <hr />
       <div className="row">
         <div className="col-8">
@@ -94,7 +94,7 @@ const Formulario = () => {
             <thead>
               <tr>
                 <th>Nombre</th>
-                <th>Universidad</th>
+                <th>Apellido</th>
                 <th>Carrera</th>
                 <th>Edad</th>
                 <th>Sexo</th>
@@ -107,7 +107,7 @@ const Formulario = () => {
               {data.map((elemento) => (
                 <tr>
                   <td>{elemento.nombre}</td>
-                  <td>{elemento.universidad}</td>
+                  <td>{elemento.apellido}</td>
                   <td>{elemento.carrera}</td>
                   <td>{elemento.edad}</td>
                   <td>{elemento.sexo}</td>
@@ -146,9 +146,9 @@ const Formulario = () => {
             <input
               className="form-control mb-2 bg-info text-black"
               type="text"
-              placeholder="Ingrese Universidad"
-              onChange={(e) => setUniversidad(e.target.value)}
-              value={universidad}
+              placeholder="Ingrese Apellido"
+              onChange={(e) => setApellido(e.target.value)}
+              value={apellido}
             />
             <input
               className="form-control mb-2 bg-info text-black"
@@ -175,13 +175,13 @@ const Formulario = () => {
               value={sexo}
             >
               <option value="F" defaultChecked>
-                Mujer
+                Seleccione un sexo
               </option>
               <option value="H">Hombre</option>
             </select>
             <input
               className="form-control mb-2 bg-info text-black"
-              type="text"
+              type="email"
               placeholder="Ingrese correo"
               onChange={(e) => setCorreo(e.target.value)}
               value={correo}
