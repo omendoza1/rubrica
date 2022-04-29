@@ -6,7 +6,7 @@ const Formulario = () => {
   const [apellido, setApellido] = useState("");
   const [carrera, setCarrera] = useState("");
   const [edad, setEdad] = useState("");
-  const [sexo, setSexo] = useState("F");
+  const [sexo, setSexo] = useState("");
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
   const [data, setData] = React.useState([]);
@@ -42,6 +42,9 @@ const Formulario = () => {
       setError("Correo requerido!");
       return;
     }
+    if (!sexo.trim()) {
+      setError("El sexo es requerido");
+      return;
 
     const repetido = data.find((x) => telefono === x.telefono);
     if (repetido !== undefined) {
@@ -174,11 +177,11 @@ const Formulario = () => {
               onChange={(e) => setSexo(e.target.value)}
               value={sexo}
             >
-              <option value="F" defaultChecked>
+              <option value="" defaultChecked>
                 Seleccione un sexo
               </option>
+              <option value="F">Mujer</option>
               <option value="H">Hombre</option>
-            </select>
             <input
               className="form-control mb-2 bg-info text-black"
               type="email"
