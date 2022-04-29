@@ -96,7 +96,7 @@ const Formulario = () => {
           <table className="table table-bordered table-info">
             <thead>
               <tr>
-                <th>Nombre</th>
+                <th>Nombrrrre</th>
                 <th>Apellido</th>
                 <th>Carrera</th>
                 <th>Edad</th>
